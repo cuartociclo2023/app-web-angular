@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -6,9 +7,17 @@ import { Component } from '@angular/core';
   styleUrl: './dashboard.component.css'
 })
 export class DashboardComponent {
-  hidden = false;
 
-  toggleBadgeVisibility() {
-    this.hidden = !this.hidden;
+  constructor(private route: ActivatedRoute, private router: Router){
+
   }
+
+  onNavigateToHomePage(): void{
+    this.router.navigate(['home'], {relativeTo: this.route})
+  }
+
+  onNavigateToPostPage(): void{
+    this.router.navigate(['post'], {relativeTo: this.route})
+  }
+
 }
