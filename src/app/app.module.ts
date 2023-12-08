@@ -10,6 +10,7 @@ import { HomeComponent } from './dashboard/home/home.component';
 import { PostListaComponent } from './dashboard/post/post-lista/post-lista.component';
 import { PostDetalleComponent } from './dashboard/post/post-detalle/post-detalle.component';
 import { RouterModule } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { RouterModule } from '@angular/router';
     BrowserModule,
     BrowserAnimationsModule,
     MaterialModule,
+    HttpClientModule,
     RouterModule.forRoot([
       {path: 'login', component: LoginComponent},
       {path: 'dashboard', component: DashboardComponent,
