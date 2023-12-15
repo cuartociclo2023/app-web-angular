@@ -16,12 +16,16 @@ export class PostService {
     return this.http.get<Post[]>(this.apiUrl)
   }
 
+  getPostById(id: number): Observable<Post>{
+    return this.http.get<Post>(this.apiUrl+"/"+id)
+  }
+
   addPost(postData: Post): Observable<Post>{
     return this.http.post<Post>(this.apiUrl, postData);
   }
 
   updatePost(postId: number, postData: Post): Observable<Post>{
-    const url = '${this.apiUrl}/${postId}'
+    const url = `${this.apiUrl}/${postId}`
     return this.http.put<Post>(url, postData);
   }
 

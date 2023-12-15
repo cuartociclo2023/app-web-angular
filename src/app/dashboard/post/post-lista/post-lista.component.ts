@@ -33,4 +33,8 @@ export class PostListaComponent implements OnInit {
     this.router.navigate([id], {relativeTo: this.route})
   }
 
+  onNavigateNewPostDetail(): void{
+    this.router.navigate(['nuevo'], {relativeTo: this.route})
+  }
+
 }

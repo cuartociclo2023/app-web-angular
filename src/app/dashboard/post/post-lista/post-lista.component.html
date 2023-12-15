@@ -3,7 +3,7 @@
       <mat-card-title>Lista de Posts</mat-card-title>
     </mat-card-header>
     <div class="right">
-        <button mat-raised-button color="prymary" >Agregar</button>
+        <button mat-raised-button color="prymary" (click)="onNavigateNewPostDetail()" >Agregar</button>
     </div>
     <hr />
     <table mat-table [dataSource]="posts" class="mat-elevation-z8">

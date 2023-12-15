@@ -1,17 +1,16 @@
 <div class="module-header">
     <div class="left">
-      <h3></h3>
+      <h3>{{formTitle}}</h3>
       <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. A distinctio animi, veniam voluptate doloribus esse.
       </p>
-    </div>
-  
+    </div>  
     <div class="right">
-      <button mat-raised-button color="prymary"  >Guardar</button>
+      <button mat-raised-button color="prymary" (click)="onSubmit()"  >Guardar</button>
     </div>
 </div>
 <hr />
 <div class="form-container">  
-    <form class="form" >
+    <form class="form" [formGroup]="postForm" >
 
       <mat-form-field appearance="outline">
         <mat-label>Title</mat-label>
