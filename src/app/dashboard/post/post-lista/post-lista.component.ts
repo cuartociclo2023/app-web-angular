@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Post } from '../post';
 import { PostService } from '../post.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-post-lista',
@@ -10,10 +11,14 @@ import { PostService } from '../post.service';
 export class PostListaComponent implements OnInit {
   
   posts: Post[] = []
+  displayedColumns: string[] = ['userId', 'id', 'title', 'body'];
 
-  constructor(private postService: PostService){
+  constructor(private postService: PostService,
+    private route: ActivatedRoute,
+    private router: Router){
   }
   ngOnInit(): void {
+    
     this.getPosts()
   }
   getPosts(){
@@ -22,6 +27,10 @@ export class PostListaComponent implements OnInit {
         this.posts = data        
       }
     )
+  }
+
+  onNavigatePostDetail(id: string): void {
+    this.router.navigate([id], {relativeTo: this.route})
   }
 
 }

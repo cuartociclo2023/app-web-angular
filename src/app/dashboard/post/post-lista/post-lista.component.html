@@ -1,5 +1,28 @@
-<mat-list role="list">
-    <mat-list-item role="listitem" *ngFor="let post of posts">
-        {{post.title}}</mat-list-item>
-</mat-list>
+<mat-card>
+    <mat-card-header>
+      <mat-card-title>Lista de Posts</mat-card-title>
+    </mat-card-header>
+
+    <table mat-table [dataSource]="posts" class="mat-elevation-z8">
+        <ng-container matColumnDef="userId">
+          <th mat-header-cell *matHeaderCellDef> User ID</th>
+          <td mat-cell *matCellDef="let element"> {{element.userId}} </td>
+        </ng-container>
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef> ID </th>
+          <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+        </ng-container>
+        <ng-container matColumnDef="title">
+          <th mat-header-cell *matHeaderCellDef> Title </th>
+          <td mat-cell *matCellDef="let element"> {{element.title}} </td>
+        </ng-container>
+        <ng-container matColumnDef="body">
+          <th mat-header-cell *matHeaderCellDef> Body </th>
+          <td mat-cell *matCellDef="let element"> {{element.body}} </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="onNavigatePostDetail(row.id)"></tr>
+      </table>
+</mat-card>
+
   
